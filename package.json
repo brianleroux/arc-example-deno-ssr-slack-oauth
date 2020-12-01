@@ -1,0 +1,34 @@
+{
+  "scripts": {
+    "start": "sandbox"
+  },
+  "architect": {
+    "app": "denossr",
+    "aws": {
+      "runtime": "deno"
+    },
+    "http": [
+      {
+        "/login": {
+          "src": "backend/login",
+          "method": "get"
+        }
+      },
+      {
+        "/logout": {
+          "src": "backend/logout",
+          "method": "get"
+        }
+      },
+      {
+        "/*": {
+          "src": "frontend",
+          "method": "any"
+        }
+      }
+    ]
+  },
+  "dependencies": {
+    "@architect/sandbox": "^3.2.1"
+  }
+}
